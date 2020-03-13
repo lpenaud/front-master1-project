@@ -1,4 +1,5 @@
 import React from "react";
+
 import HeroHead from "./bulma/hero/hero-head";
 import Navbar from "./bulma/navbar/navbar";
 import NavbarItemDiv from "./bulma/navbar/navbar-item/navbar-item-div";
@@ -7,6 +8,9 @@ import NavbarEnd from "./bulma/navbar/navbar-end";
 import NavbarBrand from "./bulma/navbar/navbar-brand";
 import NavbarBurger from "./bulma/navbar/navbar-burger";
 import NavbarItemLink from "./bulma/navbar/navbar-item/navbar-item-link";
+
+import logo from '../img/logo-slice.png';
+
 import routes from "./routes";
 
 interface HeaderState {
@@ -34,8 +38,8 @@ export default class Header extends React.Component<{}, HeaderState> {
         <Navbar>
           <NavbarBrand>
             <NavbarItemDiv>
-              <NavbarItemDiv>
-                <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo"/>
+              <NavbarItemDiv >
+                <img id="logo" src={logo} alt="Logo" /> ĶĪЙỘ
               </NavbarItemDiv>
             </NavbarItemDiv>
             <NavbarBurger onClick={this.burgerOnClick} isActive={this.state.burgerIsActive} />

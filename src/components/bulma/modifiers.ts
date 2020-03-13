@@ -1,10 +1,12 @@
-export type MainColor = "is-primary" 
-  | "is-link" 
+export type MainColor = "is-primary"
+  | "is-link"
   | "is-info"
   | "is-success"
   | "is-warning"
   | "is-danger"
-;
+  | "is-dark"
+  | "is-light"
+  ;
 
 export type TextColor = "has-text-white"
   | "has-text-black"
@@ -24,18 +26,18 @@ export type TextColor = "has-text-white"
   | "has-text-grey-lighter"
   | "has-text-white-ter"
   | "has-text-white-bis"
-;
+  ;
 
 export type Size = "is-small"
   | "is-medium"
   | "is-large"
-;
+  ;
 
 export type TextAlignment = "has-text-centered"
   | "has-text-justified"
   | "has-text-left"
   | "has-text-right"
-;
+  ;
 
 export type TitleLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -43,31 +45,79 @@ export type ControlState = "is-loading";
 
 export type InputState = "is-hovered"
   | "is-focused"
-;
+  ;
 
 export type InputType = "text"
   | "password"
   | "email"
   | "tel"
-;
+  ;
 
 export type ButtonType = "submit"
   | "reset"
-;
+  ;
 
 export type ButtonState = InputState
   | "is-active"
   | "is-loading"
-;
+  ;
 
 export type ButtonsAlignment = "is-centered"
   | "is-right"
-;
+  ;
 
 export type HeroSize = "is-medium"
   | "is-large"
   | "is-fullheight"
-;
+  ;
+
+export type HorizontalSize = "is-1"
+  | "is-2"
+  | "is-3"
+  | "is-4"
+  | "is-5"
+  | "is-6"
+  | "is-7"
+  | "is-8"
+  | "is-9"
+  | "is-10"
+  | "is-11"
+  | "is-12"
+  ;
+
+export type Context = "is-ancestor"
+  | "is-parent"
+  | "is-child"
+  ;
+
+export type Layout = "box"
+  | "notification"
+  ;
+
+export type imageSize = "is-16x16"
+  | "is-24x24"
+  | "is-32x32"
+  | "is-48x48"
+  | "is-64x64"
+  | "is-96x96"
+  | "is-128x128"
+  | "is-square"
+  | "is-1by1"
+  | "is-5by4"
+  | "is-4by3"
+  | "is-3by2"
+  | "is-5by3"
+  | "is-16by9"
+  | "is-2by1"
+  | "is-3by1"
+  | "is-4by5"
+  | "is-3by4"
+  | "is-2by3"
+  | "is-3by5"
+  | "is-9by16"
+  | "is-1by2"
+  | "is-1by3"
+  ;
 
 export interface TextProps {
   alignment?: TextAlignment;
@@ -173,6 +223,8 @@ export interface InputProps {
 
 export interface ControlProps {
   state?: ControlState;
+  hasIconLeft?: boolean;
+  hasIconRight?: boolean;
 }
 
 export interface ButtonProps {
@@ -204,4 +256,34 @@ export interface ModalCardHeadProp {
 
 export interface ModalCardFootProp {
   alignment?: "left" | "right";
+}
+
+export interface IconProps {
+  path: string;
+  size?: Size;
+  color?: string;
+  position?: "is-left" | "is-right";
+}
+
+export interface LabelProps {
+  size?: Size;
+}
+
+export interface TileProps {
+  context?: Context;
+  isVertical?: boolean;
+  horizontalSize?: HorizontalSize;
+  layout?: Layout;
+  color?: MainColor;
+}
+
+export interface TilePProps {
+  type?: "title" | "subtitle";
+  color?: TextColor;
+}
+
+export interface ImageProps {
+  src: string;
+  alt?: string;
+  size: imageSize;
 }

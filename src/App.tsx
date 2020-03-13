@@ -9,7 +9,7 @@ import "./app.css";
 export default function App() {
   return (
     <Router>
-      <Hero mainColor="is-primary" height="is-fullheight">
+      <Hero mainColor="is-light" height="is-fullheight">
         <Header />
         <Body />
         <Footer />

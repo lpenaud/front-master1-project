@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
       <HeroFoot>
         <Content alignment="has-text-centered">
           <p>
-            &#x1f12f; Loïc Penaud
+            &copy; Loïc Penaud & Maxime Metz
           </p>
         </Content>
       </HeroFoot>
