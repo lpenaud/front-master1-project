@@ -2,6 +2,8 @@ import { ComponentType } from "react";
 import Root from "./root";
 import Connection from "./connection";
 import Movie from "./movie";
+import AddMovie from "./addMovie";
+import Search from "./search";
 
 interface Route {
   path: string;
@@ -24,6 +26,16 @@ const routes: Route[] = [
     path: "/movie",
     component: Movie,
     label: "Films",
+  },
+  {
+    path: "/search",
+    component: Search,
+    label: "Recherche Films",
+  },
+  {
+    path: "/addmovie",
+    component: AddMovie,
+    label: "Ajout Films",
   }
 ];
 
