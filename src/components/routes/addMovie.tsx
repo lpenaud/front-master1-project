@@ -19,30 +19,30 @@ interface AddMovieState {
 
 export default class AddMovie extends React.Component<{}, AddMovieState> {
 
-    constructor(props: {}) {
-        super(props);
-        this.state = {
-            title: "",
-            description: "",
-            releaseDate: new Date(),
-        }
-        this.inputValueChanged = this.inputValueChanged.bind(this);
-        this.clickAdd = this.clickAdd.bind(this);
-    }
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      title: "",
+      description: "",
+      releaseDate: new Date(),
+    };
+    this.inputValueChanged = this.inputValueChanged.bind(this);
+    this.clickAdd = this.clickAdd.bind(this);
+  }
 
-    inputValueChanged(e: React.ChangeEvent<HTMLInputElement>) {
-        const name = e.currentTarget.name as keyof AddMovieState;
-        this.setState({
-            ...this.state,
-            [name]: e.currentTarget.value,
-        });
-    }
+  inputValueChanged(e: React.ChangeEvent<HTMLInputElement>) {
+    const name = e.currentTarget.name as keyof AddMovieState;
+    this.setState({
+      ...this.state,
+      [name]: e.currentTarget.value,
+    });
+  }
 
-    clickAdd() {
-        console.log("title : " + this.state.title);
-        console.log("description : " + this.state.description);
-        console.log("releaseDate : " + this.state.releaseDate);
-    }
+  clickAdd() {
+    console.log("title : " + this.state.title);
+    console.log("description : " + this.state.description);
+    console.log("releaseDate : " + this.state.releaseDate);
+  }
 
     render() {
         return (

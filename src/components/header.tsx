@@ -9,7 +9,7 @@ import NavbarBrand from "./bulma/navbar/navbar-brand";
 import NavbarBurger from "./bulma/navbar/navbar-burger";
 import NavbarItemLink from "./bulma/navbar/navbar-item/navbar-item-link";
 
-import logo from '../img/logo-slice.png';
+import logo from "../img/logo-slice.png";
 
 import routes from "./routes";
 

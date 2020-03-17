@@ -12,13 +12,13 @@ interface TileChildProps {
 }
 
 export default class TileChild extends React.Component<TileChildProps> {
-    render() {
-        return (
-            <Tile context="is-child" layout="notification" color="is-dark">
-                <TileP type="title" color="has-text-light">{this.props.title}</TileP>
-                <Image src={this.props.src} size={this.props.size || "is-2by3"} />
-                <TileP>{this.props.description}</TileP>
-            </Tile>
-        );
-    }
+  render() {
+    return (
+      <Tile context="is-child" layout="notification" color="is-dark">
+        <TileP type="title" color="has-text-light">{this.props.title}</TileP>
+        <Image src={this.props.src} size="is-2by3" />
+        <TileP>{this.props.description}</TileP>
+      </Tile>
+    );
+  }
 }

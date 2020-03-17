@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src --ext .ts,.tsx --fix"
+    "lint": "eslint --ext .ts,.tsx --fix src lib"
   },
   "eslintConfig": {
     "extends": "react-app",
@@ -43,6 +43,25 @@
       "quotes": [
         "error",
         "double"
+      ],
+      "indent": [
+        "error",
+        2
+      ],
+      "prefer-const": "error",
+      "arrow-parens": [
+        "error",
+        "always"
+      ],
+      "prefer-arrow-callback": "error",
+      "comma-dangle": [
+        "error",
+        "only-multiline"
+      ],
+      "curly": "error",
+      "eol-last": [
+        "error",
+        "always"
       ]
     }
   },

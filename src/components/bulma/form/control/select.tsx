@@ -20,11 +20,11 @@ export default class Select extends React.Component<SelectProps, SelectStates> {
 
   render() {
     const className = classNames(
-        getClassName(this.props, ["color", "size", "state"], "select"),
-        {
-          "is-multiple": this.props.isMultiple,
-          "is-rounded": this.props.isRounded,
-        }
+      getClassName(this.props, ["color", "size", "state"], "select"),
+      {
+        "is-multiple": this.props.isMultiple,
+        "is-rounded": this.props.isRounded,
+      }
     );
     return (
       <div className={className}>
