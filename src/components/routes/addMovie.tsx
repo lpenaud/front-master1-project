@@ -44,34 +44,34 @@ export default class AddMovie extends React.Component<{}, AddMovieState> {
     console.log("releaseDate : " + this.state.releaseDate);
   }
 
-    render() {
-        return (
-            <Container alignment="has-text-centered">
-                <Columns>
-                    <Column>
-                        <Image src="https://fr.web.img6.acsta.net/pictures/20/02/12/13/58/3992754.jpg" size="is-2by3"></Image>
-                        <File fileName="Nom du fichier" />
-                    </Column>
-                    <Column>
-                        <Field>
-                            <Label size="is-medium"> Titre </Label>
-                            <Input name="title" type="text" size="is-medium" valueChanged={this.inputValueChanged} />
-                        </Field>
-                        <Field>
-                            <Label size="is-medium"> Description </Label>
-                            <Input name="description" type="text" size="is-medium" valueChanged={this.inputValueChanged} />
-                        </Field>
-                        <Field>
-                            <Label size="is-medium"> Date de sortie </Label>
-                            <Input name="releaseDate" type="text" size="is-medium" valueChanged={this.inputValueChanged} />
-                        </Field>
-                        <Buttons alignment="is-centered" >
-                            <Button type="submit" color="is-link" size="is-medium" onClick={this.clickAdd}> Ajouter </Button>
-                        </Buttons>
-                    </Column>
-                </Columns>
+  render() {
+    return (
+      <Container alignment="has-text-centered">
+        <Columns>
+          <Column>
+            <Image src="https://fr.web.img6.acsta.net/pictures/20/02/12/13/58/3992754.jpg" size="is-2by3"></Image>
+            <File fileName="Nom du fichier" />
+          </Column>
+          <Column>
+            <Field>
+              <Label size="is-medium"> Titre </Label>
+              <Input name="title" type="text" size="is-medium" valueChanged={this.inputValueChanged} />
+            </Field>
+            <Field>
+              <Label size="is-medium"> Description </Label>
+              <Input name="description" type="text" size="is-medium" valueChanged={this.inputValueChanged} />
+            </Field>
+            <Field>
+              <Label size="is-medium"> Date de sortie </Label>
+              <Input name="releaseDate" type="text" size="is-medium" valueChanged={this.inputValueChanged} />
+            </Field>
+            <Buttons alignment="is-centered" >
+              <Button type="submit" color="is-link" size="is-medium" onClick={this.clickAdd}> Ajouter </Button>
+            </Buttons>
+          </Column>
+        </Columns>
 
-            </Container>
-        );
-    }
+      </Container>
+    );
+  }
 }

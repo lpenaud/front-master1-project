@@ -2,7 +2,7 @@ import React from "react";
 
 import { IMovie } from "../../../lib/models";
 import Tile from "components/bulma/tile/tile";
-import TileChild from "components/tile-child";
+import TileMovie from "components/movie/tile-movie";
 import Container from "components/bulma/container";
 import Field from "components/bulma/form/field";
 import Control from "components/bulma/form/control/control";
@@ -32,37 +32,37 @@ export default class Movie extends React.Component<{}, SearchState> {
         title: "Parasite",
         description: "Toute la famille de Ki-taek est au chômage, et s’intéresse fortement au train de vie de la richissime famille Park. Un jour, leur fils réussit à se faire recommander pour donner des cours particuliers d’anglais chez les Park. C’est le début d’un engrenage incontrôlable, dont personne ne sortira véritablement indemne...",
         releaseDate: new Date(2015, 2, 25),
-        src: "https://fr.web.img6.acsta.net/pictures/20/02/12/13/58/3992754.jpg",
+        cover: "https://fr.web.img6.acsta.net/pictures/20/02/12/13/58/3992754.jpg",
       },
       {
         id: 2,
         title: "Titanic",
         description: "En 1997, l'épave du Titanic est l'objet d'une exploration fiévreuse, menée par des chercheurs de trésor en quête d'un diamant bleu qui se trouvait à bord. Frappée par un reportage télévisé, l'une des rescapés du naufrage, âgée de 102 ans, Rose DeWitt, se rend sur place et évoque ses souvenirs. 1912. Fiancée à un industriel arrogant, Rose croise sur le bateau un artiste sans le sou.",
         releaseDate: new Date(2015, 2, 25),
-        src: "https://fr.web.img2.acsta.net/pictures/19/10/25/11/18/5224976.jpg",
+        cover: "https://fr.web.img2.acsta.net/pictures/19/10/25/11/18/5224976.jpg",
       },
       {
         id: 3,
         title: "Parasite2",
         description: "Toute la famille de Ki-taek est au chômage, et s’intéresse fortement au train de vie de la richissime famille Park. Un jour, leur fils réussit à se faire recommander pour donner des cours particuliers d’anglais chez les Park. C’est le début d’un engrenage incontrôlable, dont personne ne sortira véritablement indemne...",
         releaseDate: new Date(2015, 2, 25),
-        src: "https://fr.web.img6.acsta.net/pictures/20/02/12/13/58/3992754.jpg",
+        cover: "https://fr.web.img6.acsta.net/pictures/20/02/12/13/58/3992754.jpg",
       },
     );
 
   }
 
   search(e: React.ChangeEvent<HTMLInputElement>) {
-
-    const search: string = e.currentTarget.value;
-    let tmp: IMovie[] = [];
-
-    this.state.movies.forEach(element => {
-      if (element.title.toLowerCase().substring(0, search.length) === search) {
-        tmp.push(element);
-      }
-    });
-
+    const search = e.currentTarget.value;
+    if (search.length === 0) {
+      this.setState({
+        ...this.state,
+        displayMovies: [],
+      });
+      return;
+    }
+    const tmp: IMovie[] = this.state.movies.filter(({ title }) => title.toLowerCase().substring(0, search.length) === search);
+    console.log(search);
     this.setState({
       movies: this.state.movies,
       displayMovies: tmp
@@ -83,11 +83,7 @@ export default class Movie extends React.Component<{}, SearchState> {
           <Tile horizontalSize="is-4" isVertical context="is-parent">
           </Tile>
           <Tile horizontalSize="is-4" isVertical context="is-parent">
-            {
-              this.state.displayMovies.map((mp) => (
-                <TileChild description={mp.description} title={mp.title} src={mp.src} />
-              ))
-            }
+            { this.state.displayMovies.map((movie) => <TileMovie key={movie.id} movie={movie} />) }
           </Tile>
           <Tile horizontalSize="is-4" isVertical context="is-parent">
           </Tile>

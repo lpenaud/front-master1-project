@@ -1,6 +1,6 @@
 import React from "react";
 
-import { mdiUpload } from '@mdi/js';
+import { mdiUpload } from "@mdi/js";
 
 import { FileProps } from "../modifiers";
 import { getClassName } from "helpers/components";
@@ -12,23 +12,23 @@ import FileName from "./file-name";
 import FileLabel from "./file-label";
 
 export default class File extends React.Component<FileProps> {
-    render() {
-        const className = getClassName(this.props, ["size", "fileName"], "file has-name");
-        return (
-            <div className={className}>
-                <LabelFile>
-                    <FileInput name="resume" />
-                    <FileCta>
-                        <FileIcon path={mdiUpload} />
-                        <FileLabel>
+  render() {
+    const className = getClassName(this.props, ["size", "fileName"], "file has-name");
+    return (
+      <div className={className}>
+        <LabelFile>
+          <FileInput name="resume" />
+          <FileCta>
+            <FileIcon path={mdiUpload} />
+            <FileLabel>
                             Choisissez un fichier...
-                        </FileLabel>
-                    </FileCta>
-                    <FileName>
-                        {this.props.fileName}
-                    </FileName>
-                </LabelFile>
-            </div>
-        );
-    }
+            </FileLabel>
+          </FileCta>
+          <FileName>
+            {this.props.fileName}
+          </FileName>
+        </LabelFile>
+      </div>
+    );
+  }
 }
