@@ -2,7 +2,7 @@
   margin-left: 1em !important;
 }
 
-.field {
+div.field > input:not([type=file]) {
   width: 50%;
   margin : 0 auto;
 }

@@ -1,11 +1,13 @@
-export type MainColor = "is-primary"
+export type MainColor = "is-white"
+  | "is-black"
+  | "is-light"
+  | "is-dark"
+  | "is-primary"
   | "is-link"
   | "is-info"
   | "is-success"
   | "is-warning"
   | "is-danger"
-  | "is-dark"
-  | "is-light"
   ;
 
 export type TextColor = "has-text-white"
@@ -51,6 +53,7 @@ export type InputType = "text"
   | "password"
   | "email"
   | "tel"
+  | "date"
   ;
 
 export type ButtonType = "submit"
@@ -289,9 +292,22 @@ export interface ImageProps {
   size: imageSize;
 }
 
+export interface FileInputElement extends HTMLInputElement {
+  files: FileList;
+}
+
 export interface FileProps {
-  size?: Size;
-  fileName: string;
+  label: string;
+  size?: Size | "is-fullwidth";
+  name?: string;
+  isBoxed?: boolean;
+  hasName?: boolean;
+  defaultValue?: string;
+  icon?: string;
+  alignement?: ButtonsAlignment;
+  color?: MainColor;
+  onChange?: (e: React.ChangeEvent<FileInputElement>) => void;
+  accept?: string[];
 }
 
 export interface FileInputProps {
@@ -322,8 +338,32 @@ export interface ColumnsProps {
 
 }
 
-export interface ColumnProps {
+type ColumnSize = "is-three-quarters"
+  | "is-two-thirds"
+  | "is-half"
+  | "is-one-third"
+  | "is-one-quarter"
+  | "is-full"
+  | "is-four-fifths"
+  | "is-three-fifths"
+  | "is-two-fifths"
+  | "is-one-fifth"
+  | "is-1"
+  | "is-2"
+  | "is-3"
+  | "is-4"
+  | "is-5"
+  | "is-6"
+  | "is-7"
+  | "is-8"
+  | "is-9"
+  | "is-10"
+  | "is-11"
+  | "is-12"
+  ;
 
+export interface ColumnProps {
+  size?: ColumnSize;
 }
 
 

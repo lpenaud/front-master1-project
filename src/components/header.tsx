@@ -1,5 +1,4 @@
 import React from "react";
-
 import HeroHead from "./bulma/hero/hero-head";
 import Navbar from "./bulma/navbar/navbar";
 import NavbarItemDiv from "./bulma/navbar/navbar-item/navbar-item-div";
@@ -8,9 +7,7 @@ import NavbarEnd from "./bulma/navbar/navbar-end";
 import NavbarBrand from "./bulma/navbar/navbar-brand";
 import NavbarBurger from "./bulma/navbar/navbar-burger";
 import NavbarItemLink from "./bulma/navbar/navbar-item/navbar-item-link";
-
 import logo from "../img/logo-slice.png";
-
 import routes from "./routes";
 
 interface HeaderState {
@@ -38,7 +35,7 @@ export default class Header extends React.Component<{}, HeaderState> {
         <Navbar>
           <NavbarBrand>
             <NavbarItemDiv>
-              <NavbarItemDiv >
+              <NavbarItemDiv>
                 <img id="logo" src={logo} alt="Logo" /> ĶĪЙỘ
               </NavbarItemDiv>
             </NavbarItemDiv>
@@ -47,7 +44,7 @@ export default class Header extends React.Component<{}, HeaderState> {
           <NavbarMenu isActive={this.state.burgerIsActive}>
             <NavbarEnd>
               {
-                routes.map((route, i) => (
+                routes.filter((route) => !route.hidden).map((route, i) => (
                   <NavbarItemLink to={route.path} key={i}>
                     {route.label}
                   </NavbarItemLink>
