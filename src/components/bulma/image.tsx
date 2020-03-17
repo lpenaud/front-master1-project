@@ -5,10 +5,10 @@ import classNames from "classnames";
 
 export default class Image extends React.Component<ImageProps> {
     render() {
-        const className = classNames(getClassName(this.props, ["size"], "image"));
+        const className = classNames(getClassName(this.props, ["size", "id"], "image"));
         return (
             <figure className={className}>
-                <img src={this.props.src} alt={this.props.alt || ""}></img>
+                <img id={this.props.id} src={this.props.src} alt={this.props.alt || ""}></img>
             </figure>
         );
     }

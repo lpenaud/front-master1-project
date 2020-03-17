@@ -285,5 +285,46 @@ export interface TilePProps {
 export interface ImageProps {
   src: string;
   alt?: string;
+  id?: string;
   size: imageSize;
 }
+
+export interface FileProps {
+  size?: Size;
+  fileName: string;
+}
+
+export interface FileInputProps {
+  name?: string;
+}
+
+export interface LabelFileProps {
+
+}
+
+export interface FileCtaProps {
+
+}
+
+export interface FileIconProps {
+  path: string;
+}
+
+export interface FileNameProps {
+
+}
+
+export interface FileLabelProps {
+
+}
+
+export interface ColumnsProps {
+
+}
+
+export interface ColumnProps {
+
+}
+
+
+

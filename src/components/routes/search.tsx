@@ -57,11 +57,13 @@ export default class Movie extends React.Component<{}, SearchState> {
         const search: string = e.currentTarget.value;
         let tmp: IMovie[] = [];
 
-        this.state.movies.forEach(element => {
-            if (element.title.toLowerCase().substring(0, search.length) === search) {
-                tmp.push(element);
-            }
-        });
+        if (search !== "") {
+            this.state.movies.forEach(element => {
+                if (element.title.toLowerCase().substring(0, search.length) === search) {
+                    tmp.push(element);
+                }
+            });
+        }
 
         this.setState({
             movies: this.state.movies,
