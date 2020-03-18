@@ -366,5 +366,10 @@ export interface ColumnProps {
   size?: ColumnSize;
 }
 
-
-
+export interface MessageProps {
+  color?: MainColor;
+  title?: string;
+  size?: Size;
+  onDelete?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  isHidden?: boolean;
+}
