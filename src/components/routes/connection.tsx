@@ -78,7 +78,6 @@ export default class Connection extends React.Component<{}, ConnectionState> {
       });
     }).finally(() => {
       this.setState({
-        ...this.state,
         isLoading: false,
       });
     });

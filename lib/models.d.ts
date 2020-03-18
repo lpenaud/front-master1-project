@@ -5,14 +5,3 @@ export interface IMovie {
   description: string;
   cover: string;
 }
-
-export interface IPicture {
-  id: number;
-  cover: string;
-}
-
-export interface IMoviePicture {
-  idMovie: number;
-  idPicture: number;
-  type: string;
-}

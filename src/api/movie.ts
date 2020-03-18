@@ -21,7 +21,27 @@ export async function getMovies(): Promise<IMovie[]> {
   return res.data.map(formatResult);
 }
 
-export async function newMovie({ cover, description, releaseDate, title }: Omit<IMovie, "cover" | "id" | "releaseDate"> & { cover: File, releaseDate: number | string | Date }): Promise<IMovie> {
+export async function findMovies({ title, before, after }: { title?: string; before?: string | number | Date; after?: string | number | Date; }) {
+  if (before) {
+    before = new Date(before).getTime().toString();
+  }
+  if (after) {
+    after = new Date(after).getTime().toString();
+  }
+  const res = await Axios.get<MovieResult[]>(`${process.env.REACT_APP_BASE_URL_API}/find`, {
+    params: {
+      title,
+      before,
+      after,
+    },
+  });
+  if (res.status >= 400) {
+    throw new Error(res.statusText);
+  }
+  return res.data.map(formatResult);
+}
+
+export async function newMovie({ cover, description, releaseDate, title }: Omit<IMovie, "cover" | "id" | "releaseDate"> & { cover: File; releaseDate: number | string | Date; }): Promise<IMovie> {
   if (!auth.isAuth) {
     throw new Error("Not authentifiate");
   }

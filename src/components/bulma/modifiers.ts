@@ -126,6 +126,7 @@ export interface TextProps {
   alignment?: TextAlignment;
   size?: Size;
   color?: TextColor;
+  isHidden?: boolean;
 }
 
 export interface TableProps {
@@ -242,6 +243,7 @@ export interface ButtonProps {
   isInverted?: boolean;
   isLoading?: boolean;
   disabled?: boolean;
+  isHidden?: boolean;
   onClick?: () => void;
   form?: string;
 }
@@ -338,7 +340,7 @@ export interface ColumnsProps {
 
 }
 
-type ColumnSize = "is-three-quarters"
+type ColumnSize = HorizontalSize & "is-three-quarters"
   | "is-two-thirds"
   | "is-half"
   | "is-one-third"
@@ -348,18 +350,6 @@ type ColumnSize = "is-three-quarters"
   | "is-three-fifths"
   | "is-two-fifths"
   | "is-one-fifth"
-  | "is-1"
-  | "is-2"
-  | "is-3"
-  | "is-4"
-  | "is-5"
-  | "is-6"
-  | "is-7"
-  | "is-8"
-  | "is-9"
-  | "is-10"
-  | "is-11"
-  | "is-12"
   ;
 
 export interface ColumnProps {

@@ -8,6 +8,7 @@ export default class Button extends React.Component<ButtonProps> {
     const className = classNames(
       getClassName(this.props, ["color", "size", "state"], "button"),
       {
+        "is-hidden": this.props.isHidden,
         "is-static": this.props.isStatic,
         "is-light": this.props.isLight,
         "is-rounded": this.props.isRounded,
