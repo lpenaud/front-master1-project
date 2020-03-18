@@ -8,8 +8,7 @@ import Search from "./search";
 interface Route {
   path: string;
   component: ComponentType;
-  label: string;
-  hidden?: boolean;
+  label?: string;
 }
 
 const routes: Route[] = [
@@ -21,8 +20,6 @@ const routes: Route[] = [
   {
     path: "/connection",
     component: Connection,
-    label: "Connexion",
-    hidden: true,
   },
   {
     path: "/movies",

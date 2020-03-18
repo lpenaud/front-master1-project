@@ -44,7 +44,7 @@ export default class Header extends React.Component<{}, HeaderState> {
           <NavbarMenu isActive={this.state.burgerIsActive}>
             <NavbarEnd>
               {
-                routes.filter((route) => !route.hidden).map((route, i) => (
+                routes.filter((route) => route.label).map((route, i) => (
                   <NavbarItemLink to={route.path} key={i}>
                     {route.label}
                   </NavbarItemLink>
