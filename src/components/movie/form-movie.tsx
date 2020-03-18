@@ -11,16 +11,23 @@ import BulmaFile from "components/bulma/file/file";
 import { mdiUpload } from "@mdi/js";
 import { IMovie } from "../../../lib/models";
 import { FileInputElement } from "components/bulma/modifiers";
+import { newMovie } from "api/movie";
 
-interface FormMovieState extends Omit<Partial<IMovie>, "cover"> {
-  cover?: File,
+interface FormMovieState extends Omit<IMovie, "id" | "cover" | "releaseDate"> {
+  id?: number;
+  cover?: File;
+  releaseDate: string;
 }
 
 export default class FormMovie extends React.Component<{}, FormMovieState> {
 
   constructor(props: {}) {
     super(props);
-    this.state = {};
+    this.state = {
+      description: "",
+      title: "",
+      releaseDate: "",
+    };
     this.inputValueChanged = this.inputValueChanged.bind(this);
     this.coverChanged = this.coverChanged.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -43,7 +50,14 @@ export default class FormMovie extends React.Component<{}, FormMovieState> {
   }
 
   onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    console.log(this.state);
+    if (this.state.cover && this.state.description && this.state.releaseDate && this.state.title) {
+      newMovie({
+        cover: this.state.cover,
+        description: this.state.description,
+        releaseDate: new Date(this.state.releaseDate),
+        title: this.state.title,
+      });
+    }
     e.preventDefault();
   }
 

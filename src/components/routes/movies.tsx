@@ -2,9 +2,13 @@ import React from "react";
 import { IMovie } from "../../../lib/models";
 import Tile from "components/bulma/tile/tile";
 import TileMovie from "components/movie/tile-movie";
+import { getMovies } from "api/movie";
+import Button from "components/bulma/form/control/button";
+import Container from "components/bulma/container";
 
 interface MovieState {
   movies: IMovie[];
+  isLoading: boolean;
 }
 
 export default class Movies extends React.Component<{}, MovieState> {
@@ -13,7 +17,18 @@ export default class Movies extends React.Component<{}, MovieState> {
     super(props);
     this.state = {
       movies: [],
+      isLoading: true,
     };
+  }
+
+  componentDidMount() {
+    getMovies().then((movies) => {
+      this.setState({
+        ...this.state,
+        movies,
+        isLoading: false,
+      });
+    });
   }
 
   render() {
@@ -31,18 +46,23 @@ export default class Movies extends React.Component<{}, MovieState> {
     const t1 = this.state.movies.slice(0, tSize1);
     const t2 = this.state.movies.slice(tSize1, tSize1 + tSize2);
     const t3 = this.state.movies.slice(tSize1 + tSize2);
-    return (
+    return this.state.isLoading ? (
+      <Container alignment="has-text-centered">
+        <Button size="is-large" isRounded color="is-dark" isLoading></Button>
+      </Container>
+    ) : (
       <Tile context="is-ancestor">
         <Tile horizontalSize="is-4" isVertical context="is-parent">
-          { t1.map((movie) => <TileMovie key={movie.id} movie={movie} />) }
+          {t1.map((movie) => <TileMovie key={movie.id} movie={movie} />)
+          }
         </Tile>
         <Tile horizontalSize="is-4" isVertical context="is-parent">
-          { t2.map((movie) => <TileMovie key={movie.id} movie={movie} />) }
+          {t2.map((movie) => <TileMovie key={movie.id} movie={movie} />)}
         </Tile>
         <Tile horizontalSize="is-4" isVertical context="is-parent">
-          { t3.map((movie) => <TileMovie key={movie.id} movie={movie} />) }
+          {t3.map((movie) => <TileMovie key={movie.id} movie={movie} />)}
         </Tile>
-      </Tile>
+      </Tile >
     );
   }
 }
