@@ -20,11 +20,11 @@ export default class Input extends React.Component<InputProps> {
 
   render() {
     const className = classNames(
-        getClassName(this.props, ["color", "size", "state"], "input"),
-        {
-          "is-static": this.props.isStatic,
-          "is-rounded": this.props.isRounded,
-        }
+      getClassName(this.props, ["color", "size", "state"], "input"),
+      {
+        "is-static": this.props.isStatic,
+        "is-rounded": this.props.isRounded,
+      }
     );
     return (
       <input type={this.props.type}

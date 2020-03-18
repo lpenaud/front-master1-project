@@ -1,11 +1,13 @@
-export type MainColor = "is-primary"
+export type MainColor = "is-white"
+  | "is-black"
+  | "is-light"
+  | "is-dark"
+  | "is-primary"
   | "is-link"
   | "is-info"
   | "is-success"
   | "is-warning"
   | "is-danger"
-  | "is-dark"
-  | "is-light"
   ;
 
 export type TextColor = "has-text-white"
@@ -51,6 +53,7 @@ export type InputType = "text"
   | "password"
   | "email"
   | "tel"
+  | "date"
   ;
 
 export type ButtonType = "submit"
@@ -123,6 +126,7 @@ export interface TextProps {
   alignment?: TextAlignment;
   size?: Size;
   color?: TextColor;
+  isHidden?: boolean;
 }
 
 export interface TableProps {
@@ -239,6 +243,7 @@ export interface ButtonProps {
   isInverted?: boolean;
   isLoading?: boolean;
   disabled?: boolean;
+  isHidden?: boolean;
   onClick?: () => void;
   form?: string;
 }
@@ -289,9 +294,22 @@ export interface ImageProps {
   size: imageSize;
 }
 
+export interface FileInputElement extends HTMLInputElement {
+  files: FileList;
+}
+
 export interface FileProps {
-  size?: Size;
-  fileName: string;
+  label: string;
+  size?: Size | "is-fullwidth";
+  name?: string;
+  isBoxed?: boolean;
+  hasName?: boolean;
+  defaultValue?: string;
+  icon?: string;
+  alignement?: ButtonsAlignment;
+  color?: MainColor;
+  onChange?: (e: React.ChangeEvent<FileInputElement>) => void;
+  accept?: string[];
 }
 
 export interface FileInputProps {
@@ -322,9 +340,26 @@ export interface ColumnsProps {
 
 }
 
-export interface ColumnProps {
+type ColumnSize = HorizontalSize & "is-three-quarters"
+  | "is-two-thirds"
+  | "is-half"
+  | "is-one-third"
+  | "is-one-quarter"
+  | "is-full"
+  | "is-four-fifths"
+  | "is-three-fifths"
+  | "is-two-fifths"
+  | "is-one-fifth"
+  ;
 
+export interface ColumnProps {
+  size?: ColumnSize;
 }
 
-
-
+export interface MessageProps {
+  color?: MainColor;
+  title?: string;
+  size?: Size;
+  onDelete?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  isHidden?: boolean;
+}

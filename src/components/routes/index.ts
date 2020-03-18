@@ -1,14 +1,14 @@
 import { ComponentType } from "react";
 import Root from "./root";
 import Connection from "./connection";
-import Movie from "./movie";
-import AddMovie from "./addMovie";
+import Movies from "./movies";
+import AddMovie from "./add-movie";
 import Search from "./search";
 
 interface Route {
   path: string;
   component: ComponentType;
-  label: string;
+  label?: string;
 }
 
 const routes: Route[] = [
@@ -20,11 +20,10 @@ const routes: Route[] = [
   {
     path: "/connection",
     component: Connection,
-    label: "Connexion",
   },
   {
-    path: "/movie",
-    component: Movie,
+    path: "/movies",
+    component: Movies,
     label: "Films",
   },
   {
